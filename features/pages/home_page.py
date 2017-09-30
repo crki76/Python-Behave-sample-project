@@ -8,7 +8,7 @@ class HomePage(BasePage):
 
     local_directories = {
         "slogan": (
-            By.CLASS_NAME, 'hero__line'),
+            By.CLASS_NAME, 'hero__title'),
         "searching_bar": (
             By.ID, 'horus-querytext'),
         "searching_button": (
