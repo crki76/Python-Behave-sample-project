@@ -1,7 +1,8 @@
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.by import By
+# from selenium.webdriver.common.action_chains import ActionChains
+# from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import time
 
 
 class BasePage(object):
@@ -22,3 +23,12 @@ class BasePage(object):
 
     def click_on_element(self, element):
         self.browser.find_element(*self.local_directories[element]).click()
+
+    def get_text_from_element(self, element):
+        try:
+            a = self.browser.find_element(*self.local_directories[element])
+            time.sleep(1)
+        except KeyError:
+            print("Element {} does not exist".format(element))
+        text = a.text
+        return text

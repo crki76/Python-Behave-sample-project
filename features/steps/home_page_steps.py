@@ -1,5 +1,6 @@
 from behave import *
 from nose.tools import assert_equals, assert_true
+import re
 
 
 @given('I am redirected on home page')
@@ -18,3 +19,9 @@ def check_element_on_home_page(context, element_name):
 @step('I click on {where} in home page')
 def click_on_element_in_home_page(context, where):
     context.home_page.click_on_element(where)
+
+
+@when ('I want to see {text} in {element}')
+def get_text_from_element(context, text, element):
+    element_text = context.home_page.get_text_from_element(element)
+    assert re.search(text, element_text)

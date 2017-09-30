@@ -52,7 +52,6 @@ def wait_for_click_element(context, find_it):
     try:
         wait = WebDriverWait(context.browser, 15)
         expected_element = EC.element_to_be_clickable(find_it)
-        print(expected_element)
         wait.until(expected_element)
     except TimeoutError:
         raise
