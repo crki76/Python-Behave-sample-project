@@ -42,6 +42,15 @@ class BasePage(object):
         text = a.get_attribute('value')
         return text
 
+    def get_attr_title(self, element):
+        try:
+            a = self.browser.find_element(*self.local_directories[element])
+            time.sleep(1)
+        except KeyError:
+            print("Element {} does not exist".format(element))
+        text = a.get_attribute('title')
+        return text
+
     def is_element_exists(self, element):
         try:
             self.browser.find_element(*self.local_directories[element])

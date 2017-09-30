@@ -1,5 +1,6 @@
 from behave import *
-from nose.tools import assert_true
+from nose.tools import assert_true, assert_equals
+import time
 
 
 @step('I insert {insert_text} to search bar')
@@ -22,6 +23,7 @@ def click_search_button(context):
 
 @step('I click on {element}')
 def click_search_button(context, element):
+    time.sleep(5)
     context.searching_page.wait_till_specific_element_is_not_displayed(
         context.searching_page.local_directories[element])
     context.searching_page.click_on_element(element)
@@ -29,7 +31,17 @@ def click_search_button(context, element):
 
 @step('I check if my {is_selected} is selected')
 def is_it_selected(context, is_selected):
-    context.searching_page.wait_till_specific_element_is_not_displayed(
-        context.searching_page.local_directories["item_details"])
     check_it = context.searching_page.is_element_exists(is_selected)
     assert_true(check_it)
+
+
+@step('I expect {result} in {element} for my searching of {inserted_text} and {option}')
+def final_searching_page_assertion(context, result, element, inserted_text, option):
+    container = context.searching_page.get_attr_title(element)
+    if inserted_text in container:
+        print("Searched object {} with option {} has been found".format(inserted_text, option))
+        search_result = "True"
+    else:
+        print("Object {} with option {} could not be found".format(inserted_text, option))
+        search_result = "False"
+    assert_equals(search_result, result)

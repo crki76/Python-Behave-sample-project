@@ -9,12 +9,11 @@ class SearchingPage(BasePage):
         "searching_filter": (
             By.ID, 'js_filterlist'),
         "option_wife": (
-            By.CLASS_NAME, 'fl-group__btn--top-wifi'),
+            By.CSS_SELECTOR, "button[title='Free WiFi'] .fl-group__btn"),
         "option_spa": (
-            By.CLASS_NAME, 'fl-group__btn--top-wellness'),
-        "wife_selected": (By.CSS_SELECTOR, "button[title='Free WiFi'] .fl-group__btn"),
-        "spa_selected": (By.CSS_SELECTOR, "button[title='Spa'] .fl-group__btn"),
-        "item_details": (By.CLASS_NAME, 'item__details')
+            By.CSS_SELECTOR, "button[title='Spa'] .fl-group__btn"),
+        "searching_area": (By.CLASS_NAME, 'name__copytext')
+
 
     }
 
