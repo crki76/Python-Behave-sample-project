@@ -3,7 +3,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import json
+
 from features.pages.home_page import HomePage
+from features.pages.search_bar import SearchBar
+from features.pages.searching_page import SearchingPage
+
 import inspect
 
 
@@ -44,7 +48,12 @@ def before_scenario(context, scenario):
     context.browser = webdriver.Chrome('/home/crki/git/kneat/chromedriver', chrome_options=option)
     context.browser.get(context.location)
     wait_for_click_element(context, find_it)
+
     context.home_page = HomePage(
+        context.browser, context.location)
+    context.search_bar = SearchBar(
+        context.browser, context.location)
+    context.searching_page = SearchingPage(
         context.browser, context.location)
 
 
