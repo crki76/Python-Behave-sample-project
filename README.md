@@ -46,18 +46,18 @@ Assume that hotels would be expected in the top results (paging does not need to
 NOTE:
 In your solution we are looking for good coding standards/practices for writing automated tests.
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 
 Dependencies on my .env
-pip install -U selenium
-pip install behave
-pip install webdriver
-pip install selenium
-pip install gherkin
-pip install parse
-pip install nose
+selenium
+behave
+webdriver
+selenium
+gherkin
+parse
+nose
 
 Test OUTPUT
 
