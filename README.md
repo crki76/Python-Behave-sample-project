@@ -1,4 +1,4 @@
-# kneat
+# Python Behave sample project
 Simple BDD test automation in frameworks: Behave framework, Selenium webdriver, Gherkin, Python(3.4). I used POM 
 (page object modelling). Project uses a chromium driver (personally preffered slightly older version)
 DOM elements found by using chrome inspector
